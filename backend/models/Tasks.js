@@ -12,8 +12,8 @@ const taskSchema = new mongoose.Schema({
     priority: {type: String, enum: ["Low","Medium","High"], default: "low"},
     status: {type: String, enum: ["Pending","In-Progress","Completed"], default: "Pending"},
     dueDate: {type: Date, required: true},
-    assignedTo: [{type: mongoose.Schemas.Types.ObjectId, ref: "User" }],
-    createdBy: {type:mongoose.Schema.Types.ObjectId, ref: "User"},
+    assignedTo: [{type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    createdBy: [{type:mongoose.Schema.Types.ObjectId, ref: "User"}],
     attachments: [{type:String}],
     todoChecklist: [todoSchema],
     progress: {type: Number, default: 0}
@@ -21,4 +21,4 @@ const taskSchema = new mongoose.Schema({
     {timestamps: true}
 );
 
-module.exports = monogoose.model("Task",taskSchema);
+module.exports = mongoose.model("Task",taskSchema);
