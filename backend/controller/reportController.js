@@ -105,7 +105,23 @@ const exportUserReport =async (req,res) => {
             {header: "Completed Tasks", key:"completedTasks", width: 20 },
         ];
 
-        Object.values(user)
+        Object.values(userTaskMap).forEach((user) => {
+            worksheet.addRow(user);
+        });
+
+        res.setHeader(
+            "Content-Type",
+            "application/vnd.openxmlformats-officedocuments.spreadsheet.sheet"
+        );
+
+        res.setHeader(
+            "Content-Disposition",
+            'attachment; filename="users_report.xlsx"'
+        );
+
+        return workbook.xlsx.write(res).then(() => {
+            res.end();
+        });
 
     }
     catch(error){
