@@ -91,3 +91,14 @@ The frontend reads API URLs from `VITE_API_BASE_URL` and handles routing between
 ---
 Maintained as a single repository so backend and frontend stay in sync; clone once, install each side, and you’re ready to build. Contributions welcome via pull requests or issues.
 
+
+
+
+
+
+
+
+
+
+
+
